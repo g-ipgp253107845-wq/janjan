@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --garden-canvas: #f5faf0;
+    --garden-surface: #ffffff;
+    --garden-green: #15803d;
+    --garden-green-soft: #dcfce7;
+    --sky-blue: #0284c7;
+    --sky-blue-soft: #e0f2fe;
+    --flower-yellow: #d97706;
+    --flower-yellow-soft: #fef9c3;
+    --coral: #e11d48;
+    --coral-soft: #ffe4e6;
+    --purple: #7e22ce;
+    --purple-soft: #f3e8ff;
+    --ink-primary: #14261c;
+    --ink-secondary: #3b5244;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: var(--ink-primary);
+    background-color: var(--garden-canvas);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--garden-canvas);
+    color: var(--ink-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+
+  .font-math {
+    font-family: 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid #0284c7;
+    outline-offset: 2px;
+  }
+}
+
+/* Large text accessibility mode */
+html.large-text {
+  font-size: 18px;
+}
+
+/* High contrast accessibility mode */
+html.hc-mode {
+  --garden-canvas: #ffffff;
+  --garden-surface: #ffffff;
+  --ink-primary: #000000;
+  --ink-secondary: #111827;
+}
+
+html.hc-mode body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+html.hc-mode .garden-card {
+  border-color: #000000 !important;
+  border-width: 2px !important;
+  box-shadow: none !important;
+}
+
+/* Gentle garden butterfly flight — subtle, non-distracting */
+@keyframes flutter {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(3deg);
+  }
+}
+
+@keyframes gentleSway {
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+.animate-flutter {
+  animation: flutter 4.2s ease-in-out infinite;
+}
+
+.animate-sway {
+  animation: gentleSway 5s ease-in-out infinite;
+}
+
+/* Reduced motion support (OS preference or user toggle) */
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-flutter,
+  .animate-sway {
+    animation: none !important;
+  }
+}
