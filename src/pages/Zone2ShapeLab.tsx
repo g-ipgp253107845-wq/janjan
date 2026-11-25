@@ -13,19 +13,22 @@ import { PipGuideCard } from '../components/GardenIllustrations';
 
 const GEOGEBRA_LINKS = [
   {
-    title: 'GeoGebra Exploration 1: Polygon & Perimeter',
+    title: 'GeoGebra Station 1: Polygon & Perimeter',
     url: EXTERNAL_RESOURCES.geogebra1,
+    embedUrl: EXTERNAL_RESOURCES.geogebra1Embed,
     desc: 'Manipulate vertices and inspect outer side lengths.',
   },
   {
-    title: 'GeoGebra Exploration 2: Rectangle & Triangle Area',
+    title: 'GeoGebra Station 2: Rectangle Area',
     url: EXTERNAL_RESOURCES.geogebra2,
-    desc: 'Adjust dimensions and watch square units update dynamically.',
+    embedUrl: EXTERNAL_RESOURCES.geogebra2Embed,
+    desc: 'Adjust rectangle dimensions and observe square area units.',
   },
   {
-    title: 'GeoGebra Exploration 3: Same Perimeter Investigation',
+    title: 'GeoGebra Station 3: Triangle Area',
     url: EXTERNAL_RESOURCES.geogebra3,
-    desc: 'Compare shapes sharing the same perimeter to observe changing areas.',
+    embedUrl: EXTERNAL_RESOURCES.geogebra3Embed,
+    desc: 'Explore triangle base, perpendicular height, and area dynamically.',
   },
 ];
 
@@ -181,11 +184,11 @@ export const Zone2ShapeLab: React.FC = () => {
                     type="button"
                     onClick={() => {
                       markGeoGebraVisited(g.url);
-                      setEmbedUrl((cur) => (cur === g.url ? null : g.url));
+                      setEmbedUrl((cur) => (cur === g.embedUrl ? null : g.embedUrl));
                     }}
                     className="px-3 py-1.5 rounded-lg bg-white border border-sky-300 text-sky-950 text-xs font-bold hover:bg-sky-50"
                   >
-                    {embedUrl === g.url ? 'Hide Embed' : 'Preview Here'}
+                    {embedUrl === g.embedUrl ? 'Hide Embed' : 'Preview Here'}
                   </button>
                 </div>
               </div>
@@ -457,6 +460,40 @@ export const Zone2ShapeLab: React.FC = () => {
             </div>
           </div>
 
+          {/* Station 1 Embedded GeoGebra Applet */}
+          <div className="rounded-2xl bg-sky-50/70 border border-sky-200 p-4 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 className="font-display font-bold text-base text-sky-950">
+                  Interactive GeoGebra Applet · Station 1
+                </h3>
+                <p className="text-xs text-sky-900">
+                  Drag the vertices and explore polygon sides directly below.
+                </p>
+              </div>
+              <a
+                href={EXTERNAL_RESOURCES.geogebra1Embed}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => markGeoGebraVisited(EXTERNAL_RESOURCES.geogebra1)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold"
+              >
+                <span>Open Full Screen</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+            <div className="flex justify-center overflow-x-auto">
+              <iframe
+                src={EXTERNAL_RESOURCES.geogebra1Embed}
+                title="GeoGebra Station 1 Applet"
+                width={800}
+                height={600}
+                allowFullScreen
+                className="w-full max-w-[800px] h-[520px] sm:h-[600px] border border-[#e4e4e4] rounded-[4px] bg-white"
+              />
+            </div>
+          </div>
+
           <div className="flex justify-end">
             <button
               type="button"
@@ -479,7 +516,7 @@ export const Zone2ShapeLab: React.FC = () => {
                 Station 2 of 4 · Learning Standard 6.3.2
               </span>
               <h2 className="font-display font-bold text-2xl text-emerald-950">
-                Rectangle Area &amp; Dimension Sliders
+                Rectangle Area
               </h2>
             </div>
             <button
@@ -659,6 +696,40 @@ export const Zone2ShapeLab: React.FC = () => {
             </div>
           </div>
 
+          {/* Station 2 Embedded GeoGebra Applet */}
+          <div className="rounded-2xl bg-sky-50/70 border border-sky-200 p-4 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 className="font-display font-bold text-base text-sky-950">
+                  Interactive GeoGebra Applet · Rectangle Area
+                </h3>
+                <p className="text-xs text-sky-900">
+                  Explore rectangle area using the GeoGebra calculator applet below.
+                </p>
+              </div>
+              <a
+                href={EXTERNAL_RESOURCES.geogebra2Embed}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => markGeoGebraVisited(EXTERNAL_RESOURCES.geogebra2)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold"
+              >
+                <span>Open Full Screen</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+            <div className="flex justify-center overflow-x-auto">
+              <iframe
+                src={EXTERNAL_RESOURCES.geogebra2Embed}
+                title="GeoGebra Station 2 Rectangle Area"
+                width={800}
+                height={600}
+                allowFullScreen
+                className="w-full max-w-[800px] h-[520px] sm:h-[600px] border border-[#e4e4e4] rounded-[4px] bg-white"
+              />
+            </div>
+          </div>
+
           <div className="flex justify-end">
             <button
               type="button"
@@ -681,7 +752,7 @@ export const Zone2ShapeLab: React.FC = () => {
                 Station 3 of 4 · Learning Standard 6.3.2
               </span>
               <h2 className="font-display font-bold text-2xl text-emerald-950">
-                Triangle Area (Right-Angled, Equilateral &amp; Isosceles)
+                Triangle Area
               </h2>
             </div>
             <button
@@ -962,6 +1033,40 @@ export const Zone2ShapeLab: React.FC = () => {
                   </p>
                 )}
               </div>
+            </div>
+          </div>
+
+          {/* Station 3 Embedded GeoGebra Applet */}
+          <div className="rounded-2xl bg-sky-50/70 border border-sky-200 p-4 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 className="font-display font-bold text-base text-sky-950">
+                  Interactive GeoGebra Applet · Triangle Area
+                </h3>
+                <p className="text-xs text-sky-900">
+                  Explore triangle base, height, and area directly in the GeoGebra applet below.
+                </p>
+              </div>
+              <a
+                href={EXTERNAL_RESOURCES.geogebra3Embed}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => markGeoGebraVisited(EXTERNAL_RESOURCES.geogebra3)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold"
+              >
+                <span>Open Full Screen</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+            <div className="flex justify-center overflow-x-auto">
+              <iframe
+                src={EXTERNAL_RESOURCES.geogebra3Embed}
+                title="GeoGebra Station 3 Triangle Area"
+                width={800}
+                height={600}
+                allowFullScreen
+                className="w-full max-w-[800px] h-[520px] sm:h-[600px] border border-[#e4e4e4] rounded-[4px] bg-white"
+              />
             </div>
           </div>
 
