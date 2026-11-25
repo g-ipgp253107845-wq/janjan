@@ -68,7 +68,8 @@ export interface GardenProgressState {
 }
 
 export const EXTERNAL_RESOURCES = {
-  canva: 'https://canva.link/aaoci35zs1ujfh8',
+  canva: 'https://www.canva.com/design/DAHaTdgdrdo/m0Nrj7UG4KKFqxL4Q0qEFw/view',
+  canvaEmbed: 'https://www.canva.com/design/DAHaTdgdrdo/m0Nrj7UG4KKFqxL4Q0qEFw/view?embed',
   geogebra1: 'https://www.geogebra.org/m/rkha3m67',
   geogebra2: 'https://www.geogebra.org/m/mqqqrpcs',
   geogebra3: 'https://www.geogebra.org/m/pwug3qcq',

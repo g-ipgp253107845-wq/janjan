@@ -11,6 +11,7 @@ import {
   Home,
   LayoutGrid,
   Menu,
+  Music,
   Sparkles,
   Volume2,
   VolumeX,
@@ -112,7 +113,7 @@ const PAGE_GUIDE: Partial<Record<PageId, PageOrientationInfo>> = {
 };
 
 export const Navbar: React.FC = () => {
-  const { page, navigate, a11y, toggleA11y, computed } = useGarden();
+  const { page, navigate, a11y, toggleA11y, computed, musicPlaying, toggleMusic } = useGarden();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [a11yOpen, setA11yOpen] = useState(false);
 
@@ -178,6 +179,23 @@ export const Navbar: React.FC = () => {
           >
             <span className="font-math">{computed.overallPercent}%</span>
             <span>Progress</span>
+          </button>
+
+          {/* Background Music Toggle */}
+          <button
+            type="button"
+            onClick={toggleMusic}
+            className={`px-3 py-2 rounded-xl border transition-colors min-h-[42px] flex items-center gap-1.5 text-xs font-bold whitespace-nowrap ${
+              musicPlaying
+                ? 'bg-emerald-700 text-white border-emerald-800 shadow-sm'
+                : 'bg-white text-emerald-950 border-emerald-200 hover:bg-emerald-50'
+            }`}
+            aria-pressed={musicPlaying}
+            aria-label={musicPlaying ? 'Turn background music off' : 'Turn background music on'}
+            title={musicPlaying ? 'Garden Music: ON' : 'Garden Music: OFF'}
+          >
+            <Music className="w-4 h-4" />
+            <span className="hidden md:inline">{musicPlaying ? 'Music On' : 'Music'}</span>
           </button>
 
           {/* Audio Toggle */}

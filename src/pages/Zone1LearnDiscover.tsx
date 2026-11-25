@@ -132,7 +132,7 @@ export const Zone1LearnDiscover: React.FC = () => {
   const [stepIdx, setStepIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [visualMode, setVisualMode] = useState<'perimeter' | 'area' | 'both' | 'triangle'>('both');
-  const [showCanvaEmbed, setShowCanvaEmbed] = useState(false);
+  const [showCanvaEmbed, setShowCanvaEmbed] = useState(true);
 
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [hintsShown, setHintsShown] = useState<Record<string, boolean>>({});
@@ -276,24 +276,25 @@ export const Zone1LearnDiscover: React.FC = () => {
               }}
               className="px-4 py-2.5 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-950 border-2 border-sky-300 font-bold text-sm min-h-[44px]"
             >
-              {showCanvaEmbed ? 'Hide Embedded Preview' : 'Try Embedded View'}
+              {showCanvaEmbed ? 'Hide Embedded Slides' : 'Show Embedded Slides'}
             </button>
           </div>
         </div>
 
         {showCanvaEmbed && (
           <div className="space-y-2">
-            <div className="w-full h-[420px] rounded-2xl overflow-hidden border-2 border-sky-200 bg-sky-50">
+            <div className="relative w-full aspect-video min-h-[380px] max-h-[540px] rounded-2xl overflow-hidden border-2 border-sky-200 bg-sky-50 shadow-sm">
               <iframe
-                src={EXTERNAL_RESOURCES.canva}
+                src={EXTERNAL_RESOURCES.canvaEmbed}
                 title="Canva Understanding Perimeter and Area Lesson"
                 className="w-full h-full border-0"
                 allowFullScreen
+                loading="lazy"
               />
             </div>
             <p className="text-xs text-sky-900">
-              Note: Some browsers or school networks block Canva iframes. If the frame stays blank,
-              click <strong>Open Canva Lesson</strong> above to view it directly.
+              Note: If your browser or school network restricts embedded Canva slides, click{' '}
+              <strong>Open Canva Lesson</strong> above to view it directly in a new tab.
             </p>
           </div>
         )}

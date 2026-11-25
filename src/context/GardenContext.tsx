@@ -1,11 +1,11 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import React, { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import {
   AccessibilitySettings,
   GardenProgressState,
   GardenSectionItem,
   PageId,
-  ReflectionAnswers,
 } from '../types/garden';
+import { GardenMusicPlayer } from '../audio/GardenMusic';
 
 const STORAGE_KEY = 'geometry_garden_v1_state';
 const A11Y_KEY = 'geometry_garden_v1_a11y';
@@ -83,6 +83,8 @@ interface GardenContextValue {
   setTeacherMode: (v: boolean) => void;
   speakText: (text: string) => void;
   playChime: (type?: 'success' | 'click' | 'hint') => void;
+  musicPlaying: boolean;
+  toggleMusic: () => void;
   computed: {
     zone1Done: boolean;
     zone2Done: boolean;
@@ -103,6 +105,29 @@ export const GardenProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const page = history[history.length - 1];
 
   const [teacherMode, setTeacherMode] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const musicPlayerRef = useRef<GardenMusicPlayer | null>(null);
+
+  useEffect(() => {
+    const player = new GardenMusicPlayer();
+    musicPlayerRef.current = player;
+    return () => {
+      player.dispose();
+      musicPlayerRef.current = null;
+    };
+  }, []);
+
+  const toggleMusic = () => {
+    const player = musicPlayerRef.current;
+    if (!player) return;
+    if (player.isPlaying()) {
+      player.stop();
+      setMusicPlaying(false);
+    } else {
+      player.start();
+      setMusicPlaying(true);
+    }
+  };
 
   const [progress, setProgress] = useState<GardenProgressState>(() => {
     try {
@@ -308,6 +333,8 @@ export const GardenProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         setTeacherMode,
         speakText,
         playChime,
+        musicPlaying,
+        toggleMusic,
         computed,
       }}
     >
