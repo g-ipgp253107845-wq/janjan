@@ -109,7 +109,7 @@ export const TeacherPage: React.FC = () => {
         </h1>
         <p className="text-sm text-emerald-900 max-w-3xl">
           Monitor your pupil’s live session progress across all four zones, review their saved
-          garden justification and reflection answers, and view curriculum alignment for Year 5
+          garden justification and reflection answers, and view curriculum alignment for Year 3
           Mathematics (6.3 Perimeter &amp; Area).
         </p>
       </section>
@@ -397,7 +397,7 @@ export const TeacherPage: React.FC = () => {
                 Subject &amp; Year Level
               </dt>
               <dd className="font-semibold text-emerald-950 mt-0.5">
-                Mathematics · Year 5 (Ages 10–11)
+                Mathematics · Year 3 (Ages 8–9)
               </dd>
             </div>
             <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">

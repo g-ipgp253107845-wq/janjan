@@ -34,7 +34,7 @@ const ActiveView: React.FC = () => {
       <footer className="border-t-2 border-emerald-200 bg-white/90 py-5 px-4 sm:px-6 mt-8">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm text-emerald-900">
           <p className="font-semibold">
-            Geometry Garden · Year 5 Mathematics (Topic: Space · 6.3 Perimeter &amp; Area)
+            Geometry Garden · Year 3 Mathematics (Topic: Space · 6.3 Perimeter &amp; Area)
           </p>
           <div className="flex flex-wrap items-center gap-4 font-bold">
             <button type="button" onClick={() => navigate('home')} className="hover:underline">

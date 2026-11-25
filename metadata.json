@@ -1,6 +1,6 @@
 {
   "name": "Geometry Garden: The Perimeter & Area Adventure",
-  "description": "An interactive Year 5 Mathematics learning platform integrating Canva, GeoGebra, FloraGeo AR Garden Designer, ZEP Quiz, and Wayground for Content Standard 6.3 Perimeter and Area.",
+  "description": "An interactive Year 3 Mathematics learning platform integrating Canva, GeoGebra, FloraGeo AR Garden Designer, ZEP Quiz, and Wayground for Content Standard 6.3 Perimeter and Area.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

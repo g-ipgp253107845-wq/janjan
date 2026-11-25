@@ -140,7 +140,7 @@ export const Navbar: React.FC = () => {
               Geometry Garden
             </span>
             <span className="hidden sm:block text-[11px] font-semibold text-emerald-700 tracking-wide">
-              Year 5 Math · 6.3 Perimeter & Area
+              Year 3 Math · 6.3 Perimeter & Area
             </span>
           </span>
         </button>

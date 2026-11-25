@@ -480,7 +480,7 @@ export const IllustratedGardenMap: React.FC = () => {
               fontWeight="800"
               fontFamily="Outfit, sans-serif"
             >
-              Year 5 Space
+              Year 3 Space
             </text>
           </g>
 

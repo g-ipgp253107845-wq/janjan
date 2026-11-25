@@ -88,7 +88,7 @@ export const HomePage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-5">
             <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-800">
-              <span>Year 5 Mathematics</span>
+              <span>Year 3 Mathematics</span>
               <span aria-hidden="true">·</span>
               <span>Topic: Space</span>
               <span aria-hidden="true">·</span>
@@ -312,7 +312,7 @@ export const HomePage: React.FC = () => {
               What You Will Master (Learning Objectives)
             </h2>
             <p className="text-sm text-sky-900 mt-0.5">
-              Year 5 Space · Content Standard 6.3 Perimeter and Area (6.3.1 &amp; 6.3.2)
+              Year 3 Space · Content Standard 6.3 Perimeter and Area (6.3.1 &amp; 6.3.2)
             </p>
           </div>
 
